@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <record model="res.company" id="base.main_company">
+            <field name="name">La Team Nutra</field>
+            <field name="logo" type="base64" file="rtmg_conf/static/description/icon.png"/>
+            <field name="favicon" type="base64" file="rtmg_conf/static/description/icon.png"/>
+        </record>
+    </data>
+</odoo>

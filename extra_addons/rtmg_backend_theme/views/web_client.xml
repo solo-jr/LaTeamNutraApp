@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="ltn_layout" inherit_id="web.layout">
+        <xpath expr="//head//meta" position="after">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--            <meta name="viewport" content="min-width=1000, initial-scale=2.0" />-->
+        </xpath>
+    </template>
+</odoo>

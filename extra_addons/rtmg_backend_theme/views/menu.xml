@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+  <t t-extend="AppsMenu">
+<!--    <t t-jquery="li.dropdown" t-operation="before">-->
+<!--      <div class="buttonsfull">-->
+<!--      <a class="fullhome"  href="#" accesskey="h">-->
+<!--            <i class="fa fa-windows"/>-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </t>-->
+    <t t-jquery="a.full" t-operation="replace">
+      <a class="full" data-toggle="dropdown" data-display="static" href="#" accesskey="h" style="background-color: #FFF;" >
+<!--            <i class="fa fa-windows"/>-->
+            <img alt="home" src="/rtmg_backend_theme/static/src/img/home.png"
+            style="background-color: #FFF; height: inherit;"/>
+        </a>
+    </t>
+    <t t-jquery="div.dropdown-menu" t-operation="replace">
+        <div class="dropdown-menu dropdown-menu-app" role="menu">
+          <div id="menu-app-back-image"></div>
+          <div>
+            <div style="background-color: rgb(86, 186, 164);">
+              <img style="margin: auto;" alt="logo" src="/rtmg_backend_theme/static/description/img/ltn_icon.png"/>
+            </div>
+            <div>
+              <div style="border: 0px solid; width: 56px; height: 10px; background-color: rgb(231, 101, 88); margin: auto; "/>
+            </div>
+            <div>
+              <p><span style=" color: #56baa4; font-family: 'Fredoka One Regular'; font-size: 19px; font-style: normal; font-weight: normal;" >
+              PLUS DE 200 FORMULES
+                <br/>A VOTRE DISPOSITION</span></p>
+            </div>
+          </div>
+          <div class="content-menu-app">
+            <t t-foreach="widget.getApps()" t-as="app">
+              <a role="menuitem" t-attf-href="#menu_id=#{app.menuID}"
+                 class="dropdown-item o_app"
+                 t-att-data-menu-id="app.menuID"
+                 t-att-data-menu-xmlid="app.xmlID"
+                 t-att-data-action-id="app.actionID">
+                <div class="one-app">
+                    <div style="text-align: center;">
+<!--                  <div><img t-att-src="'data:image/png;base64,'+app.icon" t-att-alt="app.name" /></div>-->
+                      <t t-if="['THEMATIQUE', 'CLIENT', 'PRODUIT'].includes(app.name.toUpperCase())">
+                       <span style="font-size: 8px;">par</span>
+                      </t>
+                      <t t-esc="app.name"/>
+                    </div>
+                </div>
+              </a>
+              </t>
+            </div>
+        </div>
+    </t>
+  </t>
+</templates>

@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+    <template id="rtmg_brand_promotion_message_inherit" inherit_id="web.brand_promotion_message">
+      <xpath expr="//t[3]" position="replace">
+        <t t-set="websignature" t-value="website.env.ref('rtmg_web_patch.rtmg_web_patch').rtmg_website_signature" />
+        <t t-raw="websignature"/>
+      </xpath>
+    </template>
+    <template id="rtmg_layout_inherit" inherit_id="web.layout">
+      <xpath expr="//title" position="replace">
+        <title t-esc="title if title!='Odoo' else 'ISA'"/>
+      </xpath>
+    </template>
+    <template id="rtmg_assets_backend_inherit" inherit_id="web.assets_backend">
+      <xpath expr="//script[last()]" position="after">
+        <script type="text/javascript" src="/rtmg_web_patch/static/src/js/abstract_web_client.js"/>
+      </xpath>
+    </template>
+  </data>
+</odoo>

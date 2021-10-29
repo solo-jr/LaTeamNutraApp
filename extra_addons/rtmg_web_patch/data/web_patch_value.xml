@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data noupdate="1">
+    <record model="rtmg.web.patch" id="rtmg_web_patch">
+      <field name="rtmg_name" >La Team Nutra</field>
+      <field name="rtmg_website_signature" >Power By ROOTTSMG</field>
+    </record>
+  </data>
+</odoo>

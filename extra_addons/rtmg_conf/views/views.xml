@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_module_ltn_filter">
+            <field name="name">ltn_apps filter</field>
+            <field name="inherit_id" ref="base.view_module_filter"/>
+            <field name="model">ir.module.module</field>
+            <field name="arch" type="xml">
+                <xpath expr="//search//filter[last()]" position="after">
+                    <filter name="ltn_app" string="La Team Nutra" domain="['|',('name', 'like', 'ltn'),('name', 'like', 'rtmg')]"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="base.open_module_tree">
+            <field name="context">{'search_default_ltn_app':1}</field>
+        </record>
+
+    </data>
+</odoo>

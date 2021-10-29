@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+    <record id="ltn_product_template_favorite_action" model="ir.actions.act_window">
+      <field name="name">Products</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">product.template</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name="view_id" ref="ltn_product.product_template_ltn_kanban_view"/>
+      <field name="search_view_id" ref="product.product_template_search_view"/>
+      <field name="context">{"search_default_filter_to_sell":1}</field>
+      <field name="domain">[('is_favorite', '=', True)]</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Create a new product
+        </p>
+        <p>
+          You must define a product for everything you sell or purchase,
+          whether it's a storable product, a consumable or a service.
+        </p>
+      </field>
+    </record>
+    <menuitem id="menu_favorites" name="Favorites" action="ltn_product.ltn_product_template_favorite_action"
+              web_icon="ltn_product,static/description/icon.png"
+              sequence="-15"/>
+  </data>
+</odoo>

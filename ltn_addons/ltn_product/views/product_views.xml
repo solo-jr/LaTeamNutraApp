@@ -1,0 +1,141 @@
+<odoo>
+  <data>
+    <record id="product_template_ltn_form_view" model="ir.ui.view">
+      <field name="name">ltn.product.template.product.form</field>
+      <field name="model">product.template</field>
+      <field name="mode">extension</field>
+      <!--      <field name="priority" eval="8"/>-->
+      <field name="inherit_id" ref="product.product_template_form_view"/>
+      <field name="arch" type="xml">
+<!--        <xpath expr="//header" position="inside">-->
+<!--          <button string="Put in my favorites" name="put_in_my_favorites" type="object"/>-->
+<!--        </xpath>-->
+        <xpath expr="//page[@name='general_information']" position="before">
+          <page string="Product info" name="product_ltn_info">
+            <group>
+              <label for="promises" colspan="6"/>
+              <field name="promises" colspan="6" nolabel="1"/>
+              <label for="capacity" colspan="6"/>
+              <field name="capacity" colspan="6" nolabel="1"/>
+              <label for="nutritional_info" colspan="6"/>
+              <field name="nutritional_info" colspan="6" nolabel="1"/>
+              <label for="usage_tips" colspan="6"/>
+              <field name="usage_tips" colspan="6" nolabel="1"/>
+              <label for="list_of_ingredients" colspan="6"/>
+              <field name="list_of_ingredients" colspan="6" nolabel="1"/>
+              <label for="precaution_for_use" colspan="6"/>
+              <field name="precaution_for_use" colspan="6" nolabel="1"/>
+            </group>
+          </page>
+          <page string="Thematic" name="thematic_page">
+            <group>
+              <field name="thematic_ids"/>
+            </group>
+          </page>
+          <page string="Customer" name="customer_page">
+            <group>
+              <field name="ltn_customer_ids"/>
+            </group>
+          </page>
+        </xpath>
+        <xpath expr="//div[@name='options']" position="before">
+          <field name="is_favorite" widget="boolean_favorite" invisible="1"/>
+          <button name="put_in_my_favorites" icon="fa-star-o" type="object" class="oe_inline"
+                  attrs="{'invisible': [('is_favorite', '=', True)]}" style=" font-size: 16px;">
+            <!--            <field name="is_favorite" widget="boolean_favorite"/>-->
+          </button>
+          <button name="remove_in_my_favorites" icon="fa-star" type="object" class="oe_inline"
+                  attrs="{'invisible': [('is_favorite', '=', False)]}" style="color: gold; font-size: 16px;">
+            <!--            <field name="is_favorite" widget="boolean_favorite"/>-->
+          </button>
+        </xpath>
+        <xpath expr="//div[@name='options']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//page[@name='general_information']" position="after">
+          <page string="Options" name="ltn_optons">
+            <style>
+              div[name="options_info"] .o_field_boolean {
+              margin-left: 10px;
+              margin-right: 0px;
+              }
+            </style>
+            <div name="options_info" groups="base.group_user">
+              <span class="d-inline-block">
+                <field name="sale_ok"/>
+                <label for="sale_ok"/>
+              </span>
+              <span class="d-inline-block">
+                <field name="purchase_ok"/>
+                <label for="purchase_ok"/>
+              </span>
+            </div>
+          </page>
+        </xpath>
+      </field>
+    </record>
+    <record id="product_template_ltn_kanban_view" model="ir.ui.view">
+      <field name="name">ltn.Product.template.product.kanban</field>
+      <field name="model">product.template</field>
+      <field name="arch" type="xml">
+        <kanban sample="1">
+          <field name="id"/>
+          <field name="product_variant_count"/>
+          <field name="currency_id"/>
+          <field name="activity_state"/>
+          <field name="is_favorite"/>
+          <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_global_click">
+                <div class="o_kanban_image">
+                  <img t-att-src="kanban_image('product.template', 'image_128', record.id.raw_value)" alt="Product"
+                       class="o_image_64_contain"/>
+                </div>
+                <div class="oe_kanban_details">
+                  <strong class="o_kanban_record_title">
+                    <field name="name"/>
+                  </strong>
+
+                  <t t-if="record.default_code.value">[<field name="default_code"/>]
+                  </t>
+                  <div>
+                    <a href="#" name="put_in_my_favorites" icon="fa-star-o" type="object" class="oe_inline"
+                       attrs="{'invisible': [('is_favorite', '=', True)]}" style=" font-size: 25px;">
+                      <i class="fa fa-star-o"/>
+                    </a>
+                    <a href="#" name="remove_in_my_favorites" icon="fa-star" type="object" class="oe_inline"
+                       attrs="{'invisible': [('is_favorite', '=', False)]}" style="color: gold; font-size: 25px;">
+                      <i class="fa fa-star"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+    <record id="ltn_product_template_action" model="ir.actions.act_window">
+      <field name="name">Products</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">product.template</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name="view_id" ref="ltn_product.product_template_ltn_kanban_view"/>
+      <field name="search_view_id" ref="product.product_template_search_view"/>
+      <field name="context">{"search_default_filter_to_sell":1}</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Create a new product
+        </p>
+        <p>
+          You must define a product for everything you sell or purchase,
+          whether it's a storable product, a consumable or a service.
+        </p>
+      </field>
+    </record>
+    <menuitem id="menu_by_product" name="By Products" action="ltn_product.ltn_product_template_action"
+              web_icon="ltn_product,static/description/icon.png"
+              sequence="-20"/>
+  </data>
+</odoo>

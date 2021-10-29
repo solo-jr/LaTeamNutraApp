@@ -1,0 +1,181 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ltn_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-26 23:48+0000\n"
+"PO-Revision-Date: 2021-10-26 23:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ltn_product
+#: model:ir.ui.menu,name:ltn_product.menu_by_partner
+msgid "By Partner"
+msgstr "CLIENT"
+
+#. module: ltn_product
+#: model:ir.ui.menu,name:ltn_product.menu_by_product
+msgid "By Products"
+msgstr "PRODUIT"
+
+#. module: ltn_product
+#: model:ir.ui.menu,name:ltn_product.menu_by_tematic
+msgid "By Thematic"
+msgstr "THEMATIQUE"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__capacity
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__capacity
+msgid "Capacity"
+msgstr "Contenance"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__create_uid
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__create_date
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__display_name
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__display_name
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__id
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__id
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__image
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__image_128
+msgid "Image"
+msgstr ""
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites____last_update
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic____last_update
+#: model:ir.model.fields,field_description:ltn_product.field_product_template____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__write_uid
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__write_date
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__list_of_ingredients
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__list_of_ingredients
+msgid "List of ingredients"
+msgstr "Liste d'ingrédients"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__nutritional_info
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__nutritional_info
+msgid "Nutritional information"
+msgstr "Informations nutritionnnelles"
+
+#. module: ltn_product
+#: model_terms:ir.ui.view,arch_db:ltn_product.product_template_ltn_form_view
+msgid "Options"
+msgstr ""
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__partner_id
+msgid "Partner"
+msgstr "CIENT"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__precaution_for_use
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__precaution_for_use
+msgid "Precaution for use"
+msgstr "Conseils d'utilisation"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__name
+msgid "Product"
+msgstr "PRODUIT"
+
+#. module: ltn_product
+#: model:ir.model,name:ltn_product.model_ltn_favorites
+msgid "Product Favorites"
+msgstr "Produits favoris"
+
+#. module: ltn_product
+#: model:ir.model,name:ltn_product.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: ltn_product
+#: model:ir.model,name:ltn_product.model_ltn_thematic
+msgid "Product Thematic"
+msgstr "Thematique"
+
+#. module: ltn_product
+#: model_terms:ir.ui.view,arch_db:ltn_product.product_template_ltn_form_view
+msgid "Product info"
+msgstr "Infos produits"
+
+#. module: ltn_product
+#: model_terms:ir.ui.view,arch_db:ltn_product.product_template_ltn_form_view
+msgid "Put in my favorites"
+msgstr "Mettre dans mes favoris"
+
+#. module: ltn_product
+#: model:ir.actions.act_window,name:ltn_product.thematic_action_window
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__thematic_ids
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__thematic_ids
+#: model_terms:ir.ui.view,arch_db:ltn_product.product_template_ltn_form_view
+msgid "Thematic"
+msgstr "Thematique"
+
+#. module: ltn_product
+#: model:ir.model.constraint,message:ltn_product.constraint_ltn_thematic_name_uniq
+msgid "Thematic name already exists !"
+msgstr "Le nom thématique existe déjà !"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__usage_tips
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__usage_tips
+msgid "Usage tips"
+msgstr "Précaution d'emploi"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__user_id
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__promises
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__promises
+msgid "promises"
+msgstr "Promesses"

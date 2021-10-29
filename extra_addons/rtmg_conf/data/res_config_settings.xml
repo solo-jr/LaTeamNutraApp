@@ -1,0 +1,5 @@
+<odoo>
+    <data>
+            <function model="ltn.config.settings" name="init_setting"/>
+    </data>
+</odoo>
