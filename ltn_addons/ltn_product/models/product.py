@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+import base64
 
 
 class ProductTemplate(models.Model):
@@ -47,7 +48,40 @@ class ProductTemplate(models.Model):
             if in_favorite:
                 in_favorite.unlink()
 
+    def get_my_favory(self):
+        return self.search([('is_favorite', '=', True)])
 
-
+    def action_send_mail_favorites(self):
+        report_name = 'ltn_product.ltn_product_report_envelope'
+        report = self.env['ir.actions.report']._get_report_from_name(report_name)
+        favorites = self.get_my_favory()
+        favorites_ids = favorites.ids if favorites else []
+        pdf_bin, _ = report._render_qweb_pdf(favorites_ids)
+        attachment = self.env['ir.attachment'].create({
+            'name': 'La Team Nutra: Product',
+            'datas': base64.b64encode(pdf_bin),
+            'res_model': 'product.template',
+            'type': 'binary',
+        })
+        context = {
+            'default_template_id': self.env.ref('ltn_product.ltn_product_send_mail_mail_template').id,
+            'default_model': 'product.template',
+            'default_res_id': favorites_ids[0],
+            'default_use_template': True,
+            'default_composition_mode': 'comment',
+            'default_attachment_ids': [(6, 0, attachment.ids)],
+            'mark_so_as_sent': True,
+            'force_email': True,
+        }
+        action = {
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'mail.compose.message',
+            'views': [(False, 'form')],
+            'view_id': False,
+            'target': 'new',
+            'context': context,
+        }
+        return action
 
 

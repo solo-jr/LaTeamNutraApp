@@ -6,14 +6,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 23:48+0000\n"
-"PO-Revision-Date: 2021-10-26 23:48+0000\n"
+"POT-Creation-Date: 2021-11-07 15:34+0000\n"
+"PO-Revision-Date: 2021-11-07 15:34+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: ltn_product
+#: model:mail.template,subject:ltn_product.ltn_product_send_mail_mail_template
+msgid "${user.company_id.name}: Product for you"
+msgstr "${user.company_id.name}: Produit pour vous"
+
+#. module: ltn_product
+#: model:mail.template,body_html:ltn_product.ltn_product_send_mail_mail_template
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"        <p style=\"margin: 0px; padding: 0px; font-size: 12px;\">\n"
+"          Hello,\n"
+"          <br/>\n"
+"          <br/>\n"
+"          We are pleased to present the following products to you\n"
+"          <br/>\n"
+"          La Team Nutra\n"
+"        </p>\n"
+"      </div>\n"
+"    "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"        <p style=\"margin: 0px; padding: 0px; font-size: 12px;\">\n"
+"          Bonjour,\n"
+"          <br/>\n"
+"          <br/>\n"
+"          Nous sommes heureux de vous présenter les produits suivants\n"
+"          <br/>\n"
+"          La Team Nutra\n"
+"        </p>\n"
+"      </div>\n"
+"    "
 
 #. module: ltn_product
 #: model:ir.ui.menu,name:ltn_product.menu_by_partner
@@ -33,8 +65,20 @@ msgstr "THEMATIQUE"
 #. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_product_product__capacity
 #: model:ir.model.fields,field_description:ltn_product.field_product_template__capacity
+#: model_terms:ir.ui.view,arch_db:ltn_product.ltn_product_report_page
 msgid "Capacity"
 msgstr "Contenance"
+
+#. module: ltn_product
+#: model:ir.model,name:ltn_product.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: ltn_product
+#: model_terms:ir.actions.act_window,help:ltn_product.ltn_product_template_action
+#: model_terms:ir.actions.act_window,help:ltn_product.ltn_product_template_favorite_action
+msgid "Create a new product"
+msgstr "Créer un nouveau produit"
 
 #. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__create_uid
@@ -49,16 +93,43 @@ msgid "Created on"
 msgstr ""
 
 #. module: ltn_product
+#: model:ir.actions.act_window,name:ltn_product.ltn_action_contacts
+#: model_terms:ir.actions.act_window,help:ltn_product.ltn_action_contacts
+#: model_terms:ir.ui.view,arch_db:ltn_product.product_template_ltn_form_view
+msgid "Customer"
+msgstr "Client"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__ltn_customer_ids
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__ltn_customer_ids
+msgid "Customers"
+msgstr "Clients"
+
+#. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__display_name
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__display_name
 #: model:ir.model.fields,field_description:ltn_product.field_product_template__display_name
+#: model:ir.model.fields,field_description:ltn_product.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__is_favorite
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__is_favorite
+msgid "Favorite"
+msgstr "Favori"
+
+#. module: ltn_product
+#: model:ir.ui.menu,name:ltn_product.menu_favorites
+#: model:ir.ui.menu,name:ltn_product.menu_favorites_list
+msgid "Favorites"
+msgstr "Favoris"
 
 #. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__id
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__id
 #: model:ir.model.fields,field_description:ltn_product.field_product_template__id
+#: model:ir.model.fields,field_description:ltn_product.field_res_partner__id
 msgid "ID"
 msgstr ""
 
@@ -72,6 +143,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites____last_update
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic____last_update
 #: model:ir.model.fields,field_description:ltn_product.field_product_template____last_update
+#: model:ir.model.fields,field_description:ltn_product.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
 
@@ -90,6 +162,7 @@ msgstr ""
 #. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_product_product__list_of_ingredients
 #: model:ir.model.fields,field_description:ltn_product.field_product_template__list_of_ingredients
+#: model_terms:ir.ui.view,arch_db:ltn_product.ltn_product_report_page
 msgid "List of ingredients"
 msgstr "Liste d'ingrédients"
 
@@ -101,6 +174,7 @@ msgstr "Nom"
 #. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_product_product__nutritional_info
 #: model:ir.model.fields,field_description:ltn_product.field_product_template__nutritional_info
+#: model_terms:ir.ui.view,arch_db:ltn_product.ltn_product_report_page
 msgid "Nutritional information"
 msgstr "Informations nutritionnnelles"
 
@@ -117,11 +191,14 @@ msgstr "CIENT"
 #. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_product_product__precaution_for_use
 #: model:ir.model.fields,field_description:ltn_product.field_product_template__precaution_for_use
+#: model_terms:ir.ui.view,arch_db:ltn_product.ltn_product_report_page
 msgid "Precaution for use"
 msgstr "Conseils d'utilisation"
 
 #. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__name
+#: model_terms:ir.ui.view,arch_db:ltn_product.product_template_ltn_kanban_view
+#: model_terms:ir.ui.view,arch_db:ltn_product.thematic_view_kanban
 msgid "Product"
 msgstr "PRODUIT"
 
@@ -129,6 +206,11 @@ msgstr "PRODUIT"
 #: model:ir.model,name:ltn_product.model_ltn_favorites
 msgid "Product Favorites"
 msgstr "Produits favoris"
+
+#. module: ltn_product
+#: model:ir.actions.report,name:ltn_product.ltn_action_report_product
+msgid "Product La team Nutra"
+msgstr "Produit La team Nutra"
 
 #. module: ltn_product
 #: model:ir.model,name:ltn_product.model_product_template
@@ -146,9 +228,20 @@ msgid "Product info"
 msgstr "Infos produits"
 
 #. module: ltn_product
-#: model_terms:ir.ui.view,arch_db:ltn_product.product_template_ltn_form_view
-msgid "Put in my favorites"
-msgstr "Mettre dans mes favoris"
+#: model:ir.actions.act_window,name:ltn_product.ltn_product_template_action
+#: model:ir.actions.act_window,name:ltn_product.ltn_product_template_favorite_action
+msgid "Products"
+msgstr "Produits"
+
+#. module: ltn_product
+#: model:ir.ui.menu,name:ltn_product.menu_send_favorite
+msgid "Send Favorites"
+msgstr "Envoyer les favoris"
+
+#. module: ltn_product
+#: model:ir.actions.server,name:ltn_product.ltn_send_product_favori
+msgid "Send product favoris"
+msgstr "Envoyer les produits favoris"
 
 #. module: ltn_product
 #: model:ir.actions.act_window,name:ltn_product.thematic_action_window
@@ -166,6 +259,7 @@ msgstr "Le nom thématique existe déjà !"
 #. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_product_product__usage_tips
 #: model:ir.model.fields,field_description:ltn_product.field_product_template__usage_tips
+#: model_terms:ir.ui.view,arch_db:ltn_product.ltn_product_report_page
 msgid "Usage tips"
 msgstr "Précaution d'emploi"
 
@@ -175,7 +269,21 @@ msgid "User"
 msgstr "Utilisateur"
 
 #. module: ltn_product
+#: model_terms:ir.actions.act_window,help:ltn_product.ltn_product_template_action
+#: model_terms:ir.actions.act_window,help:ltn_product.ltn_product_template_favorite_action
+msgid ""
+"You must define a product for everything you sell or purchase,\n"
+"          whether it's a storable product, a consumable or a service."
+msgstr ""
+
+#. module: ltn_product
+#: model:ir.actions.report,print_report_name:ltn_product.ltn_action_report_product
+msgid "object.name"
+msgstr ""
+
+#. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_product_product__promises
 #: model:ir.model.fields,field_description:ltn_product.field_product_template__promises
+#: model_terms:ir.ui.view,arch_db:ltn_product.ltn_product_report_page
 msgid "promises"
 msgstr "Promesses"

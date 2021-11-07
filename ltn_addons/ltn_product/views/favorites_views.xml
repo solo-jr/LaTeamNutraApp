@@ -19,8 +19,11 @@
         </p>
       </field>
     </record>
-    <menuitem id="menu_favorites" name="Favorites" action="ltn_product.ltn_product_template_favorite_action"
+    <menuitem id="menu_favorites" name="Favorites"
               web_icon="ltn_product,static/description/icon.png"
               sequence="-15"/>
+    <menuitem id="menu_favorites_list" name="Favorites" action="ltn_product.ltn_product_template_favorite_action"
+              parent="ltn_product.menu_favorites"
+              sequence="1"/>
   </data>
 </odoo>

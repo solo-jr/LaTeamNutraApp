@@ -24,5 +24,10 @@
         <link rel="stylesheet" type="text/scss" href="/rtmg_backend_theme/static/src/scss/navbar.scss"/>
       </xpath>
     </template>
+    <template id="rtmg_report_assets_common_custom_fonts" name="Custom QWeb fonts" inherit_id="web.report_assets_common">
+      <xpath expr="." position="inside">
+        <link href="/rtmg_backend_theme/static/src/scss/navbar.scss" rel="stylesheet" type="text/less"/>
+      </xpath>
+    </template>
   </data>
 </odoo>

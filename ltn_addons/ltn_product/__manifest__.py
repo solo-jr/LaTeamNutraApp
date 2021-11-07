@@ -35,6 +35,8 @@
         'views/partner_views.xml',
         'views/favorites_views.xml',
         'views/assets.xml',
+        'report/product_report.xml',
+        'views/product_send_mail.xml',
         # 'views/templates.xml',
     ],
     # only loaded in demonstration mode
