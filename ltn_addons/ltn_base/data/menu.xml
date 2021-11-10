@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="mail.menu_root_discuss" parent="base.menu_administration" />
+    <menuitem id="base.menu_management" parent="base.menu_administration" />
+    <menuitem id="contacts.menu_contacts" parent="base.menu_administration" />
+</odoo>

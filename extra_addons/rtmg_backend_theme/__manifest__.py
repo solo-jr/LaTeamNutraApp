@@ -22,6 +22,7 @@
     'depends': [
         'base',
         'web',
+        'sublime_web_responsive',
     ],
 
     # always loaded

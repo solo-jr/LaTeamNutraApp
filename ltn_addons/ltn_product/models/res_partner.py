@@ -6,6 +6,8 @@ from odoo import models, fields, api
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
+    is_custumer_ltn = fields.Boolean('Customer La Team Nutra')
+
     def get_products(self):
         kanban_view_id = self.env.ref('ltn_product.product_template_ltn_kanban_view').id
         action = {

@@ -38,6 +38,7 @@
         'report/product_report.xml',
         'views/product_send_mail.xml',
         # 'views/templates.xml',
+        'data/ir_cron.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

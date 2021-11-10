@@ -7,9 +7,9 @@
       <!--      <field name="priority" eval="8"/>-->
       <field name="inherit_id" ref="product.product_template_form_view"/>
       <field name="arch" type="xml">
-<!--        <xpath expr="//header" position="inside">-->
-<!--          <button string="Put in my favorites" name="put_in_my_favorites" type="object"/>-->
-<!--        </xpath>-->
+        <!--        <xpath expr="//header" position="inside">-->
+        <!--          <button string="Put in my favorites" name="put_in_my_favorites" type="object"/>-->
+        <!--        </xpath>-->
         <xpath expr="//page[@name='general_information']" position="before">
           <page string="Product info" name="product_ltn_info">
             <group>
@@ -17,6 +17,8 @@
               <field name="promises" colspan="6" nolabel="1"/>
               <label for="capacity" colspan="6"/>
               <field name="capacity" colspan="6" nolabel="1"/>
+              <label for="dosage_for" colspan="6"/>
+              <field name="dosage_for" colspan="6" nolabel="1"/>
               <label for="nutritional_info" colspan="6"/>
               <field name="nutritional_info" colspan="6" nolabel="1"/>
               <label for="usage_tips" colspan="6"/>
@@ -25,6 +27,8 @@
               <field name="list_of_ingredients" colspan="6" nolabel="1"/>
               <label for="precaution_for_use" colspan="6"/>
               <field name="precaution_for_use" colspan="6" nolabel="1"/>
+              <field name="adv_name" invisible="1"/>
+              <field name="adv" filename="adv_name" widget="binary"/>
             </group>
           </page>
           <page string="Thematic" name="thematic_page">
@@ -96,24 +100,47 @@
                   <strong class="o_kanban_record_title">
                     <field name="name"/>
                   </strong>
-
-                  <t t-if="record.default_code.value">[<field name="default_code"/>]
-                  </t>
+                  <a href="#" name="put_in_my_favorites" icon="fa-star-o" type="object" class="oe_inline"
+                     attrs="{'invisible': [('is_favorite', '=', True)]}" style=" font-size: 25px;">
+                    <i class="fa fa-star-o"/>
+                  </a>
+                  <a href="#" name="remove_in_my_favorites" icon="fa-star" type="object" class="oe_inline"
+                     attrs="{'invisible': [('is_favorite', '=', False)]}" style="color: gold; font-size: 25px;">
+                    <i class="fa fa-star"/>
+                  </a>
+                  <!--                  <t t-if="record.default_code.value">[<field name="default_code"/>]-->
+                  <!--                  </t>-->
                   <div>
-                    <a href="#" name="put_in_my_favorites" icon="fa-star-o" type="object" class="oe_inline"
-                       attrs="{'invisible': [('is_favorite', '=', True)]}" style=" font-size: 25px;">
-                      <i class="fa fa-star-o"/>
-                    </a>
-                    <a href="#" name="remove_in_my_favorites" icon="fa-star" type="object" class="oe_inline"
-                       attrs="{'invisible': [('is_favorite', '=', False)]}" style="color: gold; font-size: 25px;">
-                      <i class="fa fa-star"/>
-                    </a>
+                    <field name="ltn_customer_ids" widget="many2many_tags"/>
                   </div>
+                  <div>
+                    <field name="thematic_ids" widget="many2many_tags"/>
+                  </div>
+                  <!--                  <div>-->
+                  <!--                  </div>-->
                 </div>
               </div>
             </t>
           </templates>
         </kanban>
+      </field>
+    </record>
+
+    <record id="ltn_product_template_search_view" model="ir.ui.view">
+      <field name="name">product.template.search</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_search_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//search//field[@name='name']" position="after">
+          <field name="promises"/>
+          <field name="capacity"/>
+          <field name="nutritional_info"/>
+          <field name="usage_tips"/>
+          <field name="list_of_ingredients"/>
+          <field name="precaution_for_use"/>
+          <field name="ltn_customer_ids"/>
+          <field name="thematic_ids"/>
+        </xpath>
       </field>
     </record>
     <record id="ltn_product_template_action" model="ir.actions.act_window">

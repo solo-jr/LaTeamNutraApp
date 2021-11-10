@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-07 15:34+0000\n"
-"PO-Revision-Date: 2021-11-07 15:34+0000\n"
+"POT-Creation-Date: 2021-11-09 23:16+0000\n"
+"PO-Revision-Date: 2021-11-09 23:16+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -46,6 +46,20 @@ msgstr ""
 "        </p>\n"
 "      </div>\n"
 "    "
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__adv
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__adv
+#: model:ir.model.fields,help:ltn_product.field_product_product__adv
+#: model:ir.model.fields,help:ltn_product.field_product_template__adv
+msgid "ADV"
+msgstr ""
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__adv_name
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__adv_name
+msgid "ADV Name"
+msgstr "Nom ADV"
 
 #. module: ltn_product
 #: model:ir.ui.menu,name:ltn_product.menu_by_partner
@@ -100,6 +114,12 @@ msgid "Customer"
 msgstr "Client"
 
 #. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_res_partner__is_custumer_ltn
+#: model:ir.model.fields,field_description:ltn_product.field_res_users__is_custumer_ltn
+msgid "Customer La Team Nutra"
+msgstr "Client La Team Nutra"
+
+#. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_product_product__ltn_customer_ids
 #: model:ir.model.fields,field_description:ltn_product.field_product_template__ltn_customer_ids
 msgid "Customers"
@@ -112,6 +132,13 @@ msgstr "Clients"
 #: model:ir.model.fields,field_description:ltn_product.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
+
+#. module: ltn_product
+#: model:ir.model.fields,field_description:ltn_product.field_product_product__dosage_for
+#: model:ir.model.fields,field_description:ltn_product.field_product_template__dosage_for
+#: model_terms:ir.ui.view,arch_db:ltn_product.ltn_product_report_page
+msgid "Dosage for"
+msgstr "Dosage pour"
 
 #. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_product_product__is_favorite
@@ -137,6 +164,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__image
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_thematic__image_128
 msgid "Image"
+msgstr ""
+
+#. module: ltn_product
+#: model:ir.actions.server,name:ltn_product.ir_cron_auto_sync_presta_ir_actions_server
+#: model:ir.cron,cron_name:ltn_product.ir_cron_auto_sync_presta
+#: model:ir.cron,name:ltn_product.ir_cron_auto_sync_presta
+msgid "LTN Product: import"
 msgstr ""
 
 #. module: ltn_product
@@ -193,7 +227,7 @@ msgstr "CIENT"
 #: model:ir.model.fields,field_description:ltn_product.field_product_template__precaution_for_use
 #: model_terms:ir.ui.view,arch_db:ltn_product.ltn_product_report_page
 msgid "Precaution for use"
-msgstr "Conseils d'utilisation"
+msgstr "Précaution d'emploi"
 
 #. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__name
@@ -261,7 +295,7 @@ msgstr "Le nom thématique existe déjà !"
 #: model:ir.model.fields,field_description:ltn_product.field_product_template__usage_tips
 #: model_terms:ir.ui.view,arch_db:ltn_product.ltn_product_report_page
 msgid "Usage tips"
-msgstr "Précaution d'emploi"
+msgstr "Conseils d'utilisation"
 
 #. module: ltn_product
 #: model:ir.model.fields,field_description:ltn_product.field_ltn_favorites__user_id

@@ -27,7 +27,7 @@ label, strong {
 }
 .o_kanban_record {
     border-radius: 30px 0 30px 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin: 10px;
 }
 .o_kanban_image img, .oe_module_icon {
@@ -66,7 +66,7 @@ body.o_is_superuser .o_menu_systray {
 .o_main_navbar {
     background-color: $o-brand-odoo;
     // border-radius: 10px 0 0px 10px;
-    color: $rtmg-navbar-color;
+//     color: $rtmg-navbar-color;
     .o_menu_apps {
         .dropdown {
             // border-radius: 10px;

@@ -21,10 +21,13 @@
     # any module necessary for this one to work correctly
     'depends': [
         'base',
+        'mail',
+        'contacts',
     ],
 
     # always loaded
     'data': [
+        'data/menu.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -2,16 +2,16 @@
 <odoo>
   <template id="ltn_product_report_page" name=" LTN product report page">
     <t t-call="web.external_layout">
-        <style>
-          h1, h2, h3, h4, h5, h6, label {
-            color: #56baa4;
-            width: 100%;
-          }
-          * {
-            font-family: 'Fredoka One Regular';
-            text-align: center;
-          }
-        </style>
+      <style>
+        h1, h2, h3, h4, h5, h6, label {
+        color: #56baa4;
+        width: 100%;
+        }
+        * {
+        font-family: 'Fredoka One Regular';
+        text-align: center;
+        }
+      </style>
       <div class="page">
         <h1 class="text-center">
           <span t-field="doc.name"/>
@@ -29,6 +29,12 @@
           <h3>Capacity</h3>
           <div>
             <span t-field="doc.capacity"/>
+          </div>
+        </div>
+        <div>
+          <h3>Dosage for</h3>
+          <div>
+            <span t-field="doc.dosage_for"/>
           </div>
         </div>
         <div>
@@ -77,12 +83,14 @@
     <field name="binding_type">report</field>
     <field name="binding_view_types">kanban,list,form</field>
   </record>
-  <record id="product.report_product_template_barcode" model="ir.actions.report">
-<!--    <field name="binding_model_id" eval="False"/>-->
-    <field name="binding_type" eval="False"/>
-  </record>
-  <record id="product.report_product_template_label" model="ir.actions.report">
-<!--    <field name="binding_model_id"/>-->
-    <field name="binding_type" eval="False"/>
-  </record>
+  <delete model="ir.actions.report" id="product.report_product_template_barcode"/>
+  <delete model="ir.actions.report" id="product.report_product_template_label"/>
+<!--    <record id="product.report_product_template_barcode" model="ir.actions.report">-->
+<!--  &lt;!&ndash;    <field name="binding_model_id" eval="False"/>&ndash;&gt;-->
+<!--      <field name="binding_type" eval="False"/>-->
+<!--    </record>-->
+<!--    <record id="product.report_product_template_label" model="ir.actions.report">-->
+<!--  &lt;!&ndash;    <field name="binding_model_id"/>&ndash;&gt;-->
+<!--      <field name="binding_type" eval="False"/>-->
+<!--    </record>-->
 </odoo>
