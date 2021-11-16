@@ -70,6 +70,14 @@ class ProductTemplate(models.Model):
             'res_model': 'product.template',
             'type': 'binary',
         })
+        for fav in favorites:
+            if fav.adv:
+                attachment |= self.env['ir.attachment'].create({
+                    'name': fav.adv_name if fav.adv_name  else 'ADV',
+                    'datas': fav.adv,
+                    'res_model': 'product.template',
+                    'type': 'binary',
+                })
         context = {
             'default_template_id': self.env.ref('ltn_product.ltn_product_send_mail_mail_template').id,
             'default_model': 'product.template',
