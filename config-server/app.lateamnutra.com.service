@@ -1,0 +1,17 @@
+[Unit]
+Description=La Team Nutra server in port 8069, with domain app.lateamnutra.com
+# After=
+# ConditionPathExists=
+ 
+[Service]
+Type=simple
+# ExecStartPre=
+ExecStart=/home/inst-la-team-nutra-app/envronment_dir/ressources/conf_local/app.lateamnutra.com.sh
+# ExecStop=
+# ExecStopPost=
+# RemainAfterExit=
+# Restart=
+ 
+[Install]
+WantedBy=multi-user.target
+ 

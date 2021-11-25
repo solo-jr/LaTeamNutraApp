@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="ir_cron_auto_sync_presta" model="ir.cron">
+    <record id="ir_cron_import_product" model="ir.cron">
         <field name="name">LTN Product: import</field>
 <!--        <field name="interval_number">5</field>-->
 <!--        <field name="interval_type">minutes</field>-->
         <field name="priority">0</field>
+        <field name="active" eval="False" />
         <field name="numbercall">1</field>
 <!--        <field name="nextcall" eval="(DateTime.now() + timedelta(seconds=50)).strftime('%Y-%m-%d %H:%M:%S')" />-->
         <field name="doall" eval="True"/>
         <field name="model_id" ref="product.model_product_template"/>
         <field name="code">model.import_product()</field>
+        <field name="state">code</field>
+    </record>
+    <record id="ir_cron_import_thematic_image" model="ir.cron">
+        <field name="name">LTN Thematic: import image</field>
+<!--        <field name="interval_number">5</field>-->
+<!--        <field name="interval_type">minutes</field>-->
+        <field name="priority">0</field>
+        <field name="active" eval="False" />
+        <field name="numbercall">1</field>
+<!--        <field name="nextcall" eval="(DateTime.now() + timedelta(seconds=50)).strftime('%Y-%m-%d %H:%M:%S')" />-->
+        <field name="doall" eval="True"/>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="code">model.import_image_thematic()</field>
         <field name="state">code</field>
     </record>
 </odoo>

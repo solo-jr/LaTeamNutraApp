@@ -171,7 +171,17 @@ class ProductTemplate(models.Model):
                 row_index += 1
                 print(row_index)
 
-
-
-
+    def import_image_thematic(self):
+        file_name = 'ltn.thematic.csv'
+        full_path_file = get_resource_path('ltn_product', 'data', file_name)
+        with open(full_path_file, newline='', encoding='utf-8-sig') as csvfile:
+            reader = csv.DictReader(csvfile, delimiter=',')
+            thematic_model = self.env['ltn.thematic'].sudo()
+            for dict_row in reader:
+                dict_real = dict(dict_row)
+                thematic = thematic_model.search([('name', '=', dict_real['Nom'])], limit=1)
+                img_path = get_resource_path('ltn_product', 'data', 'img_category', dict_real['Image'])
+                with open(img_path, 'rb') as img:
+                    thematic_val = {'image': base64.b64encode(img.read())}
+                    thematic.write(thematic_val)
 
