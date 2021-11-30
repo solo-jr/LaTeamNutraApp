@@ -15,9 +15,16 @@
         color: red !important;
     }
 }
-body *:not(i, .fa) {
+/* body *:not(i, .fa) {
     font-family: 'Fredoka One Regular' !important;
+} */
+label, h1, h2, h3, h4, h5, h6,  button:not(.fa) {
+    font-family: 'Fredoka One Regular' !important;
+    *:not(i, .fa) {
+        font-family: 'Fredoka One Regular' !important;
+    }
 }
+
 label, strong {
     color: $rtmg-navbar-color;
 }

@@ -1,61 +1,158 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+
+  <template id="external_layout_standard">
+    <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+      <div class="row">
+        <div class="col-3 mb4">
+          <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
+        </div>
+        <div class="col-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+      </div>
+      <div t-if="company.logo or company.report_header" class="row zero_min_height">
+        <div class="col-12">
+          <div style="border-bottom: 1px solid black;"/>
+        </div>
+      </div>
+      <!--      <div class="row">-->
+      <!--        <div class="col-6" name="company_address">-->
+      <!--          <div t-field="company.partner_id"-->
+      <!--               t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'-->
+      <!--          />-->
+      <!--        </div>-->
+      <!--      </div>-->
+    </div>
+
+    <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout"
+         t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+         t-att-data-oe-lang="o and o.env.context.get('lang')">
+
+      <t t-raw="0"/>
+    </div>
+
+    <!--    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">-->
+    <!--      <div class="text-center" style="border-top: 1px solid black;">-->
+    <!--        <ul class="list-inline mb4">-->
+    <!--          &lt;!&ndash; using the list-inline-item class from bootstrap causes weird behaviours in pdf report-->
+    <!--               adding d-inline class fixes the problem&ndash;&gt;-->
+    <!--          <li t-if="company.phone" class="list-inline-item d-inline">-->
+    <!--            <span class="o_force_ltr" t-field="company.phone"/>-->
+    <!--          </li>-->
+    <!--          <li t-if="company.email" class="list-inline-item d-inline">-->
+    <!--            <span t-field="company.email"/>-->
+    <!--          </li>-->
+    <!--          <li t-if="company.website" class="list-inline-item d-inline">-->
+    <!--            <span t-field="company.website"/>-->
+    <!--          </li>-->
+    <!--          <li t-if="company.vat" class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>-->
+    <!--            :-->
+    <!--            <span t-field="company.vat"/>-->
+    <!--          </li>-->
+    <!--        </ul>-->
+
+    <!--        <div name="financial_infos">-->
+    <!--          <span t-field="company.report_footer"/>-->
+    <!--        </div>-->
+
+    <!--        <div t-if="report_type == 'pdf'" class="text-muted">-->
+    <!--          Page:-->
+    <!--          <span class="page"/>-->
+    <!--          /-->
+    <!--          <span class="topage"/>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+  </template>
+
+  <!-- Public api: layout to t-call from reports -->
+
+  <template id="external_layout">
+    <t t-if="not o" t-set="o" t-value="doc"/>
+
+    <t t-if="not company">
+      <!-- Multicompany -->
+      <t t-if="company_id">
+        <t t-set="company" t-value="company_id"/>
+      </t>
+      <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+        <t t-set="company" t-value="o.company_id.sudo()"/>
+      </t>
+      <t t-else="else">
+        <t t-set="company" t-value="res_company"/>
+      </t>
+    </t>
+
+    <t t-if="company.external_report_layout_id" t-call="{{company.external_report_layout_id.key}}">
+      <t t-raw="0"/>
+    </t>
+    <t t-else="else" t-call="ltn_product.external_layout_standard">
+      <t t-raw="0"/>
+    </t>
+
+  </template>
   <template id="ltn_product_report_page" name=" LTN product report page">
-    <t t-call="web.external_layout">
+    <!--    <t t-call="web.external_layout">-->
+    <t t-call="ltn_product.external_layout">
       <style>
         h1, h2, h3, h4, h5, h6, label {
         color: #56baa4;
         width: 100%;
-        }
-        * {
         font-family: 'Fredoka One Regular';
-        text-align: center;
+        }
+        .ltn-img-product {
+          text-align: center;
+        }
+        .ltn-article {
+        margin-top: 20px;
+        }
+        article > .pt-5 {
+        padding-top: 0 !important;
         }
       </style>
       <div class="page">
         <h1 class="text-center">
           <span t-field="doc.name"/>
         </h1>
-        <div>
+        <div class="ltn-img-product">
           <img t-if="doc.image_128" t-att-src="image_data_uri(doc.image_128)"/>
         </div>
-        <div>
+        <div class="ltn-article">
           <h3>promises</h3>
           <div>
             <span t-field="doc.promises"/>
           </div>
         </div>
-        <div>
+        <div class="ltn-article">
           <h3>Capacity</h3>
           <div>
             <span t-field="doc.capacity"/>
           </div>
         </div>
-        <div>
+        <div class="ltn-article">
           <h3>Dosage for</h3>
           <div>
             <span t-field="doc.dosage_for"/>
           </div>
         </div>
-        <div>
+        <div class="ltn-article">
           <h3>Nutritional information</h3>
           <div>
             <span t-field="doc.nutritional_info"/>
           </div>
         </div>
-        <div>
+        <div class="ltn-article">
           <h3>Usage tips</h3>
           <div>
             <span t-field="doc.usage_tips"/>
           </div>
         </div>
-        <div>
+        <div class="ltn-article">
           <h3>List of ingredients</h3>
           <div>
             <span t-field="doc.list_of_ingredients"/>
           </div>
         </div>
-        <div>
+        <div class="ltn-article">
           <h3>Precaution for use</h3>
           <div>
             <span t-field="doc.precaution_for_use"/>
@@ -72,6 +169,22 @@
     </t>
   </template>
 
+  <record id="ltn_product_pdf" model="report.paperformat">
+    <field name="name">A4</field>
+    <field name="default" eval="True"/>
+    <field name="format">A4</field>
+    <field name="page_height">0</field>
+    <field name="page_width">0</field>
+    <field name="orientation">Portrait</field>
+    <field name="margin_top">15</field>
+    <field name="margin_bottom">7</field>
+    <field name="margin_left">7</field>
+    <field name="margin_right">7</field>
+    <field name="header_line" eval="False"/>
+    <field name="header_spacing">10</field>
+    <field name="dpi">90</field>
+  </record>
+
   <record id="ltn_action_report_product" model="ir.actions.report">
     <field name="name">Product La team Nutra</field>
     <field name="model">product.template</field>
@@ -82,15 +195,16 @@
     <field name="binding_model_id" ref="product.model_product_template"/>
     <field name="binding_type">report</field>
     <field name="binding_view_types">kanban,list,form</field>
+    <field name="paperformat_id" ref="ltn_product.ltn_product_pdf"/>
   </record>
   <delete model="ir.actions.report" id="product.report_product_template_barcode"/>
   <delete model="ir.actions.report" id="product.report_product_template_label"/>
-<!--    <record id="product.report_product_template_barcode" model="ir.actions.report">-->
-<!--  &lt;!&ndash;    <field name="binding_model_id" eval="False"/>&ndash;&gt;-->
-<!--      <field name="binding_type" eval="False"/>-->
-<!--    </record>-->
-<!--    <record id="product.report_product_template_label" model="ir.actions.report">-->
-<!--  &lt;!&ndash;    <field name="binding_model_id"/>&ndash;&gt;-->
-<!--      <field name="binding_type" eval="False"/>-->
-<!--    </record>-->
+  <!--    <record id="product.report_product_template_barcode" model="ir.actions.report">-->
+  <!--  &lt;!&ndash;    <field name="binding_model_id" eval="False"/>&ndash;&gt;-->
+  <!--      <field name="binding_type" eval="False"/>-->
+  <!--    </record>-->
+  <!--    <record id="product.report_product_template_label" model="ir.actions.report">-->
+  <!--  &lt;!&ndash;    <field name="binding_model_id"/>&ndash;&gt;-->
+  <!--      <field name="binding_type" eval="False"/>-->
+  <!--    </record>-->
 </odoo>
