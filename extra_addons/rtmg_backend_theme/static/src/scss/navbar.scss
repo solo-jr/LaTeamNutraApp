@@ -20,9 +20,12 @@
 } */
 label, h1, h2, h3, h4, h5, h6,  button:not(.fa) {
     font-family: 'Fredoka One Regular' !important;
-    *:not(i, .fa) {
+    /**:not(i, .fa) {
         font-family: 'Fredoka One Regular' !important;
-    }
+    }*/
+}
+label *:not(i, .fa), h1 *:not(i, .fa), h2 *:not(i, .fa), h3 *:not(i, .fa), h4 *:not(i, .fa), h5 *:not(i, .fa), h6 *:not(i, .fa),  button:not(.fa) *:not(i, .fa) {
+    font-family: 'Fredoka One Regular' !important;
 }
 
 label, strong {

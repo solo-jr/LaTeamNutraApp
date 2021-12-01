@@ -2,14 +2,13 @@ odoo.define('rtmg_backend_theme.AppsMenu', function (require) {
 var AppsMenu = require('web.AppsMenu');
 var AppsMenu = AppsMenu.include({
     events: _.extend({}, AppsMenu.prototype.events, {
-        'click .fullhome': '_onclick_fullhome',
+        'click .o_app': '_onclick_o_app',
     }),
-    _onclick_fullhome: function(e){
-        $('.full').first().click();
-        console.log($('.full').get())
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
+    _onclick_o_app: function(e){
+        var menu_apps_dropdown = document.querySelector(".o_menu_apps .dropdown");
+        $(menu_apps_dropdown)
+            .find("> a")
+            .dropdown("hide");
     },
     init: function (parent, menuData) {
         this._super.apply(this, arguments);
@@ -24,7 +23,12 @@ var AppsMenu = AppsMenu.include({
         });
     },
     start: function () {
-        this._super();
+        this._super().then(function(){
+            var menu_apps_dropdown = document.querySelector(".o_menu_apps .dropdown");
+            $(menu_apps_dropdown)
+                .find("> a")
+                .dropdown("show");
+        });
         var $dropdownMenu =  this.$('.dropdown-menu');
         var $contentMenuApp =  this.$('.content-menu-app');
         function configAppSize(){
@@ -52,13 +56,9 @@ var AppsMenu = AppsMenu.include({
         };
         window.onresize = function(e){
             configAppSize();
-//            window.location.reload();
         }
         var onAppShow = new MutationObserver(configAfterShow)
         onAppShow.observe($dropdownMenu.get()[0], {attributes: true})
-//        window.innerHeight -= 50;
-//        $('.buttonsfull').css('top', (window.innerHeight + 5) +'px');
-//        $('.buttonsfull').css('display', 'block');
     },
 });
 return AppsMenu;

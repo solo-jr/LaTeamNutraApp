@@ -447,7 +447,7 @@ odoo.define("web_responsive", function (require) {
          */
         _appendController: function () {
             this._super.apply(this, arguments);
-            closeAppDrawer();
+//            closeAppDrawer();
         },
     });
 

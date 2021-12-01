@@ -8,8 +8,10 @@
 <!--        </a>-->
 <!--      </div>-->
 <!--    </t>-->
+<!--    </t>-->
+    <t t-jquery="li.dropdown" t-operation="attributes"><attribute name="class" value="dropdown" /></t>
     <t t-jquery="a.full" t-operation="replace">
-      <a class="full" data-toggle="dropdown" data-display="static" href="#" accesskey="h" style="background-color: #FFF;" >
+      <a class="full" data-toggle="dropdown" data-display="static" href="#" accesskey="h" style="background-color: #FFF;">
 <!--            <i class="fa fa-windows"/>-->
             <img alt="home" src="/rtmg_backend_theme/static/src/img/home.png"
             style="background-color: #FFF; height: inherit;"/>
